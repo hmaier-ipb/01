@@ -1,0 +1,75 @@
+
+html{
+
+}
+
+body{
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 3.5fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "product_container"
+    "shopping_cart";
+}
+
+.product_container{
+  border: solid 2px black;
+  grid-area: product_container;
+  overflow-y: scroll;
+}
+
+.product{
+  height: 100%;
+  border: dotted 2px black;
+}
+
+.shopping_cart{
+  border: solid 2px black;
+  grid-area: shopping_cart;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.cart_item{
+  border: dotted 2px black;
+
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  body{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 0.2fr 2.5fr 0.2fr;
+    grid-template-rows: 3.5fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    " . product_container . "
+    " . shopping_cart . ";
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+/*@media (min-width: 768px) {body{}}*/
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  body{
+    display: grid;
+    grid-template-columns: 0.2fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    " . product_container shopping_cart ";
+  }
+  .shopping_cart{
+    display: grid;
+  }
+}
+
+
+
+
+

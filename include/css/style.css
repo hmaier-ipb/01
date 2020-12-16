@@ -1,9 +1,17 @@
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
 html{
 
 }
 
 body{
+  overflow-y: hidden;
   height: 100vh;
   display: grid;
   grid-template-columns: auto;
@@ -18,11 +26,15 @@ body{
   border: solid 2px black;
   grid-area: product_container;
   overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
 }
 
 .product{
   height: 100%;
   border: dotted 2px black;
+  scroll-snap-align: start;
 }
 
 .shopping_cart{
@@ -30,11 +42,13 @@ body{
   grid-area: shopping_cart;
   display: flex;
   overflow-x: scroll;
+  overflow-y: scroll;
+  
 }
 
 .cart_item{
   border: dotted 2px black;
-
+  /*setting a fixed size for the cart item*/
 }
 
 /* Small devices (landscape phones, 576px and up)*/
@@ -52,13 +66,24 @@ body{
 }
 
 /* Medium devices (tablets, 768px and up)*/
-/*@media (min-width: 768px) {body{}}*/
+@media (min-width: 768px) {
+  body{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 0.3fr 2.5fr 0.3fr;
+    grid-template-rows: 3.5fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    " . product_container . "
+    " . shopping_cart . ";
+  }
+}
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
   body{
     display: grid;
-    grid-template-columns: 0.2fr 2fr 1fr;
+    grid-template-columns: 0.2fr 2fr 0.8fr;
     grid-template-rows: 1fr;
     gap: 0px 0px;
     grid-template-areas:
